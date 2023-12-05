@@ -12,9 +12,9 @@ namespace EjercicioIFC.Domain.Entities
     {
         public int Id {  get; set; }
         public DateTime FechaInforme { get; set; }
-        public int CodigoVendedor { get; set; }
+        public string CodigoVendedor { get; set; }
         public decimal  Venta {  get; set; }
-        public string VentaGrande { get; set; }
+        public bool VentaGrande { get; set; }
 
     }
 }

@@ -16,10 +16,7 @@ public class DatabaseContext : DbContext
 
     //CONFIGURANDO LAS OPCIONES DE LA BASE DE DATOS 
 
-    public DatabaseContext(DbContextOptions<DatabaseContext> options): base (options) 
-{
-
-}
+    public DatabaseContext(DbContextOptions<DatabaseContext> options): base (options){}
 
     public DbSet<VentasMensuales> VentasMensuales { get; set; }
 
@@ -34,7 +31,7 @@ public class DatabaseContext : DbContext
         {
             entity.Property(p => p.Id).HasColumnName ("id");
             entity.Property(p => p.FechaInforme).HasColumnName ("fecha_del_informe");
-            entity.Property(p => p.CodigoVendedor).HasColumnName("codido_vendedor");
+            entity.Property(p => p.CodigoVendedor).HasColumnName("codigo_vendedor");
             entity.Property(p => p.Venta).HasColumnName("venta");
             entity.Property(p => p.VentaGrande).HasColumnName("venta_grande");
         });

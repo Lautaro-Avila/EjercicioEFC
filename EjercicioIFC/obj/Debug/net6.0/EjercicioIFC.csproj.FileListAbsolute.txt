@@ -62,3 +62,4 @@ C:\Users\user\Desktop\CDA Capacitación\Taller-CDA\EjercicioIFC\EjercicioIFC\obj
 C:\Users\user\Desktop\CDA Capacitación\Taller-CDA\EjercicioIFC\EjercicioIFC\obj\Debug\net6.0\EjercicioIFC.pdb
 C:\Users\user\Desktop\CDA Capacitación\Taller-CDA\EjercicioIFC\EjercicioIFC\obj\Debug\net6.0\EjercicioIFC.genruntimeconfig.cache
 C:\Users\user\Desktop\CDA Capacitación\Taller-CDA\EjercicioIFC\EjercicioIFC\obj\Debug\net6.0\ref\EjercicioIFC.dll
+C:\Users\user\Desktop\CDA Capacitación\Taller-CDA\EjercicioIFC\EjercicioIFC\obj\Debug\net6.0\EjercicioIFC.sourcelink.json
