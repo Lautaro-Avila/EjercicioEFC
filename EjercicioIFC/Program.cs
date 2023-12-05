@@ -43,23 +43,48 @@ internal class Program
                 context.VentasMensuales.Add(ventasMensuales); //context es una instancia deribada de dbcontext, hace refeencia al contexto de la base de datos a la que queremos comletar con datos.
             }
         }
-        context.SaveChanges(); 
+        context.SaveChanges();
 
 
-           
-           
-        
-        
-        
+
+        //                                     -----------------CONSIGNAS-----------------------  
+
+        var listaVendedoresMayores = context.VentasMensuales.GroupBy(group => group.CodigoVendedor)
+                                                            .Where(where => where.ToList().Sum(sum => sum.Venta) >= 100000m )
+                                                            .Select(select => new {select.Key, Totalventa = select.ToList().Sum(select => select.Venta )}).ToList();
+
+        if (listaVendedoresMayores.Count() > 0)
+        {
+            listaVendedoresMayores.ForEach(venta => Console.WriteLine($"El vededor {venta.Key} vendio {venta.Totalventa}"));
+        }
         
 
-        
-        
-        
-       
-    
+
+        var listVendedoresMenores = context.VentasMensuales.GroupBy(group => group.CodigoVendedor)
+                                                           .Where(where => where.ToList().Sum(sum => sum.Venta) <= 100000m )
+                                                           .Select(select => new { select.Key, Totalventa = select.ToList().Sum(select => select.Venta)}).ToList();
+
+        if (listVendedoresMenores.Count() > 0)
+        {
+            listVendedoresMenores.ForEach(venta => Console.WriteLine($"El vededor {venta.Key} vendio {venta.Totalventa}"));
+        }
+
+
+        var ventasMarcaEmpresa = context.VentasMensuales .GroupBy(group => group.CodigoVendedor)
+                                                         .Where(where => where.ToList().Any(any => any.VentaGrande))
+                                                         .Select(select => new { select.Key, TotalVenta = select.ToList().Sum(sum => sum.Venta)}).ToList() ;
+
+
+        if (ventasMarcaEmpresa.Count() > 0)
+        {
+            ventasMarcaEmpresa.ForEach(marca => Console.WriteLine($"{marca.Key}"));
+        }
+
+
+
+
     }
-    //------------------------ CARGA DE RECHAZOS ---------------------------------
+    //                              ------------------------ CARGA DE RECHAZOS ---------------------------------
 
 
 
@@ -108,7 +133,7 @@ internal class Program
 
     }  
 
-    //------------------ CARGA VENTAS MENSUALES ----------------------------
+    //                                  ------------------ CARGA VENTAS MENSUALES ----------------------------
 
     private static VentasMensuales CargaVentasMensuales (string data) 
     {

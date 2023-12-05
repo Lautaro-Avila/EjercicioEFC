@@ -29,11 +29,13 @@ public class DatabaseContext : DbContext
     {
         modelBuilder.Entity<VentasMensuales>(entity => //modelBuilder, NOS PERMITE DEFINIR COMO DESDE C# SE TRADUCE A LOS ESQUEMAS DE DB. (SE USA PARA CADA CLASE QUE QUERAMOS TRADUCIR)
         {
+            entity.ToTable("ventas_mensuales");
             entity.Property(p => p.Id).HasColumnName ("id");
             entity.Property(p => p.FechaInforme).HasColumnName ("fecha_del_informe");
             entity.Property(p => p.CodigoVendedor).HasColumnName("codigo_vendedor");
             entity.Property(p => p.Venta).HasColumnName("venta");
             entity.Property(p => p.VentaGrande).HasColumnName("venta_grande");
+            
         });
 
         modelBuilder.Entity<Parametria>(entity =>
